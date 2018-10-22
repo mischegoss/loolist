@@ -21,9 +21,15 @@ const Feed = (props) => (
 const Profile = (props) => (
   <Template title="Profile"/>
 );
+
+
 class App extends Component {
+
+
   render() {
     return (
+
+
       <Router history={browserHistory}>
         <Route path="/" component={Feed}/>
         <Route path="/profile" component={Profile}/>
@@ -31,4 +37,6 @@ class App extends Component {
     );
   }
 }
+
+
 export default App;
