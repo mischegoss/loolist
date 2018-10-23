@@ -1,34 +1,28 @@
-import React, { Component } from 'react';
-import { Router, browserHistory, Route, Link } from 'react-router';
+import React from 'react';
 import './App.css';
-const NavBar = () => (
-  <div className="navbar">
-    <Link to="/">Feed</Link>
-    <Link to="/profile">Profile</Link>
-  </div>
-);
-const Template = ({ title }) => (
-  <div>
-    <NavBar />
-    <p className="page-info">
-      This is the {title} page.
-    </p>
-  </div>
-);
-const Feed = (props) => (
-  <Template title="Feed"/>
-);
-const Profile = (props) => (
-  <Template title="Profile"/>
-);
+
 class App extends Component {
-  render() {
-    return (
-      <Router history={browserHistory}>
-        <Route path="/" component={Feed}/>
-        <Route path="/profile" component={Profile}/>
-      </Router>
-    );
-  }
+ constructor(props){
+   super(props);
+     this.state={
+       //insert locations here eventually
+     };
+componentDidMount() {
+  this.renderMap()
 }
-export default App;
+
+renderMap = () => {
+  loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyAIg4yw5-ijN1dzoYsJQSkSpgcFrgwPJVo&callback=initMap&output=svembed&layer=c")
+  window.initMap = this.initMap
+}
+
+initMap  = () => {
+  // The location of Times Squaure
+  var timessquare = {lat: 40.756816, lng: -73.986031};
+  // The map, centered
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 18, center: timessquare});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: timessquare, map: map});
+
+}
