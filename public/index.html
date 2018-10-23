@@ -14,39 +14,7 @@
 
     <!--The div element for the map -->
     <div id="map"></div>
-    <script>
-// Initialize and add the map
-function initMap() {
-  // The location of Times Squaure
-  var timessquare = {lat: 40.756816, lng: -73.986031};
-  // The map, centered
-  var map = new google.maps.Map(
-      document.getElementById('map'), {zoom: 18, center: timessquare});
-  // The marker, positioned at Uluru
-  var marker = new google.maps.Marker({position: timessquare, map: map});
-}
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIg4yw5-ijN1dzoYsJQSkSpgcFrgwPJVo&callback=initMap&output=svembed&layer=c">
-    </script>
 
-    <script>
-     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('worker.js').then(function(registration) {
-            console.log('Worker registration successful', registration.scope);
-          }, function(err) {
-            console.log('Worker registration failed', err);
-          }).catch(function(err) {
-            console.log(err);
-          });
-        });
-      } else {
-        console.log('Service Worker is not supported by browser.');
-      }
-    </script>
-
-  </script>
 
   </body>
 </html>
