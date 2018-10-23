@@ -1,4 +1,4 @@
-// Flag for enabling cache in production
+
 var doCache = false;
 var CACHE_NAME = 'pwa-app-cache';
 // Delete old caches
